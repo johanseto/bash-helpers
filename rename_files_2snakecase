@@ -1,0 +1,4 @@
+for file in ./*; do echo "$file" ; done
+for file in ./* ; do mv "$file" "$(echo $file|sed -e 's/\([A-Z]\)/_\L\1/g' -e 's/^.\/_//')" ; done
+for file in ./* ; do mv "$file" "$(echo $file|sed -e 's/[àâáÁa]/a/g;s/[oọõóÓ]/o/g;s/[i,í,ì,Í]/i/g;s/[e,ê,ệ,é,É]/e/g;s/[u,úÚü]/u/g;s/[ñÑ]/n/g;')";done
+for file in ./*; do mv "$file" "$(echo $file|sed -e 's/[ _]_*/_/g')" ; done
